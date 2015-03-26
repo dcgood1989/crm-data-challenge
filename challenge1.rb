@@ -1,4 +1,4 @@
-CRM = {
+crm = {
   :people => [
     {
       :id => 1,
@@ -387,6 +387,16 @@ CRM = {
   ]
 }
 
+  crm[:companies].each do |companies|
+    puts "#{companies[:name]}"
 
-crm[:people].each do |hash|
-  puts "#{hash[:first_name]} #{hash[:last_name]}"
+    crm[:people].each do |hash|
+      hash [:employments]. each do |employments|
+        h = "  #{hash[:first_name]} #{hash[:last_name]}"
+
+        if employments[:company_id] == companies[:id]
+          puts h
+        end
+      end
+    end
+  end
